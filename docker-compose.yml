@@ -6,11 +6,8 @@ services:
     restart: always
     ports:
       - "8001:8001"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/usersdb
-      - NODE_ENV=production
-      - PORT=8001
-      - JWT_SECRET=19859c935994709d96e12e0739e566e9
+    env_file:
+      - ./services/user-service/.env
     depends_on:
       - mongo
 
